@@ -10,7 +10,9 @@ window.bgcolor("skyblue")
 bird = turtle.Turtle()
 # bird.shape()
 bird.color("yellow")
+bird.goto(-450,200)
 
+#methods for movement
 def flyUp():
     bird.setheading(90)
     bird.forward(1)
@@ -32,6 +34,7 @@ window.onkeypress(flyUp,"Up")
 window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
+
 
 
 #keeps window open util manually closed
