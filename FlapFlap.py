@@ -9,7 +9,7 @@ window.bgcolor("skyblue")
 
 #bird setup
 bird = turtle.Turtle()
-# bird.shape()
+bird.shape("classic")
 bird.color("yellow")
 bird.goto(-450,200)
 bird.penup()
@@ -37,11 +37,24 @@ window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
 
+# create pipes
+def createPipes():
+    pipes = turtle.Turtle()
+    # pair
+    # upper pipe
+    
+
+    # lower pipe
+
 
 # gravity factor
 gravity = 1
 #main game loop: to make the bird fall down
 while True:
+    #refreshes the screen. the
+    # window.update() call is used to make sure that the drawing
+    # created by the turtle is displayed on the screen
+    window.update()
     bird.sety(bird.ycor() -gravity)
 
 
