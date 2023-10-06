@@ -6,16 +6,18 @@ window.title("Flap Flap")
 window.setup(1000,600)
 window.bgcolor("skyblue")
 
+
 #bird setup
 bird = turtle.Turtle()
 # bird.shape()
 bird.color("yellow")
 bird.goto(-450,200)
+bird.penup()
 
 #methods for movement
 def flyUp():
     bird.setheading(90)
-    bird.forward(1)
+    bird.forward(50)
 
 def flyDown():
     bird.setheading(270)
@@ -34,6 +36,13 @@ window.onkeypress(flyUp,"Up")
 window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
+
+
+# gravity factor
+gravity = 1
+#main game loop: to make the bird fall down
+while True:
+    bird.sety(bird.ycor() -gravity)
 
 
 
