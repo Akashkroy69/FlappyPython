@@ -11,6 +11,27 @@ bird = turtle.Turtle()
 # bird.shape()
 bird.color("yellow")
 
+def flyUp():
+    bird.setheading(90)
+    bird.forward(1)
+
+def flyDown():
+    bird.setheading(270)
+    bird.forward(1)
+def flyRight():
+    bird.setheading(0)
+    bird.forward(1)
+
+def flyLeft():
+    bird.setheading(180)
+    bird.forward(1)
+#window control
+#invoking event listener so code can listen to keypresses
+window.listen()
+window.onkeypress(flyUp,"Up")
+window.onkeypress(flyDown,"Down")
+window.onkeypress(flyRight,"Right")
+window.onkeypress(flyLeft,"Left")
 
 
 #keeps window open util manually closed
