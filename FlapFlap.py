@@ -3,16 +3,25 @@ import turtle
 #window setup
 window = turtle.Screen()
 window.title("Flap Flap")
-window.setup(1000,600)
-window.bgcolor("skyblue")
+window.setup(1000,600,0,0)
+window.bgcolor("white")
+# window.bgpic(r"C:\Users\akash\aaVS_CODE\PYTHONVScode\Codingal\Additional Projects\Flappy Bird\flapbg.gif") --> working, not necessary now
+#----experimenting with importing image using adShaper and register_shape()
+window.register_shape(r"C:\Users\akash\aaVS_CODE\PYTHONVScode\Codingal\Additional Projects\Flappy Bird\_bird.gif")
+# window.addshape(r"C:\Users\akash\aaVS_CODE\PYTHONVScode\Codingal\Additional Projects\Flappy Bird\_bird.gif") --> both work
+print(window.getshapes())
+window.tracer(0)
 
 
 #bird setup
 bird = turtle.Turtle()
-bird.shape("classic")
+bird.shape(r"C:\Users\akash\aaVS_CODE\PYTHONVScode\Codingal\Additional Projects\Flappy Bird\_bird.gif")
+
+# bird.shapesize(5,2) --> not working with the gif
 bird.color("yellow")
 bird.goto(-450,200)
 bird.penup()
+
 
 #methods for movement
 def flyUp():
@@ -37,6 +46,7 @@ window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
 
+
 # create pipes
 def createPipes():
     pipes = turtle.Turtle()
@@ -48,7 +58,7 @@ def createPipes():
 
 
 # gravity factor
-gravity = 1
+gravity = .2
 #main game loop: to make the bird fall down
 while True:
     #refreshes the screen. the
