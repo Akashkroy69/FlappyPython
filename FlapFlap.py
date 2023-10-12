@@ -42,6 +42,7 @@ def flyLeft():
 #invoking event listener so code can listen to keypresses
 window.listen()
 window.onkeypress(flyUp,"Up")
+window.onkeypress(flyUp,"space")
 window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
