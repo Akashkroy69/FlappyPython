@@ -49,7 +49,8 @@ def createPipes():
     upperPipe.color("green")
     upperPipe.shapesize(stretch_wid=pipe_height,stretch_len=3)
     upperPipe.penup()
-    upperPipe.goto(-500,300)
+    # will set the pipe on the right side
+    upperPipe.goto(500,300)
 
     
 
@@ -59,7 +60,8 @@ def createPipes():
     lowerPipe.color("green")
     lowerPipe.shapesize(stretch_wid=pipe_height,stretch_len=3)
     lowerPipe.penup()
-    lowerPipe.goto(-500,-300)
+    # will set the pipe on the right side
+    lowerPipe.goto(500,-300)
 
 
     pipes.append((upperPipe,lowerPipe))
@@ -70,6 +72,8 @@ def createPipes():
 gravity = 1
 # pipe generating factor
 pipeGeneratorFactor = 0
+# score 
+score = 0
 #main game loop: to make the bird fall down
 while True:
     #refreshes the screen. the
@@ -80,13 +84,20 @@ while True:
     
     if pipeGeneratorFactor%200 == 0:
         createPipes()
+    
+    # moving pipes
+    for pipe_top, pipe_bottom in pipes:
+        pipe_top.setx(pipe_top.xcor()-2)
+        pipe_bottom.setx(pipe_bottom.xcor()-2)
 
     pipeGeneratorFactor += 1
+    score += 1
 
-    # gameend logic
+    # game-end logic
     if bird.ycor() <= -300:
-        print("Game Over")
-        exit()
+         print("SCORE: ",score)
+         print("Game Over")
+         exit()
 
 
 
