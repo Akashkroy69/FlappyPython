@@ -68,6 +68,8 @@ def createPipes():
 
 # gravity factor
 gravity = 1
+# pipe generating factor
+pipeGeneratorFactor = 0
 #main game loop: to make the bird fall down
 while True:
     #refreshes the screen. the
@@ -75,8 +77,16 @@ while True:
     # created by the turtle is displayed on the screen
     window.update()
     bird.sety(bird.ycor() -gravity)
+    
+    if pipeGeneratorFactor%200 == 0:
+        createPipes()
 
-    createPipes()
+    pipeGeneratorFactor += 1
+
+    # gameend logic
+    if bird.ycor() <= -300:
+        print("Game Over")
+        exit()
 
 
 
