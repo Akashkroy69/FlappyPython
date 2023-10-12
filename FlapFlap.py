@@ -1,10 +1,11 @@
-import turtle
+import turtle, random
 
 #window setup
 window = turtle.Screen()
 window.title("Flap Flap")
 window.setup(1000,600)
 window.bgcolor("skyblue")
+window.tracer(0)
 
 
 #bird setup
@@ -38,13 +39,31 @@ window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
 
 # create pipes
+pipes=[]
 def createPipes():
-    pipes = turtle.Turtle()
     # pair
+    pipe_height = random.randint(1,10)
     # upper pipe
+    upperPipe = turtle.Turtle()
+    upperPipe.shape("square")
+    upperPipe.color("green")
+    upperPipe.shapesize(stretch_wid=pipe_height,stretch_len=3)
+    upperPipe.penup()
+    upperPipe.goto(-500,300)
+
     
 
     # lower pipe
+    lowerPipe = turtle.Turtle()
+    lowerPipe.shape("square")
+    lowerPipe.color("green")
+    lowerPipe.shapesize(stretch_wid=pipe_height,stretch_len=3)
+    lowerPipe.penup()
+    lowerPipe.goto(-500,-300)
+
+
+    pipes.append((upperPipe,lowerPipe))
+
 
 
 # gravity factor
@@ -56,6 +75,9 @@ while True:
     # created by the turtle is displayed on the screen
     window.update()
     bird.sety(bird.ycor() -gravity)
+
+    createPipes()
+
 
 
 
