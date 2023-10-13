@@ -34,15 +34,16 @@ def flyLeft():
 #invoking event listener so code can listen to keypresses
 window.listen()
 window.onkeypress(flyUp,"Up")
+window.onkeypress(flyUp,"space")
 window.onkeypress(flyDown,"Down")
 window.onkeypress(flyRight,"Right")
 window.onkeypress(flyLeft,"Left")
-
+ 
 # create pipes
 pipes=[]
 def createPipes():
     # pair
-    pipe_height = random.randint(1,10)
+    pipe_height = random.randint(1,20)
     # upper pipe
     upperPipe = turtle.Turtle()
     upperPipe.shape("square")
@@ -69,7 +70,7 @@ def createPipes():
 
 
 # gravity factor
-gravity = 1
+gravity = 0.5
 # pipe generating factor
 pipeGeneratorFactor = 0
 # score 
@@ -98,8 +99,6 @@ while True:
          print("SCORE: ",score)
          print("Game Over")
          exit()
-
-
 
 
 #keeps window open util manually closed
