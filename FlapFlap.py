@@ -95,7 +95,7 @@ while True:
     score += 1
 
     # game-end logic
-    if bird.ycor() <= -300:
+    if bird.ycor() <= -300 or bird.ycor() >= 300:
          print("SCORE: ",score)
          print("Game Over")
          exit()
