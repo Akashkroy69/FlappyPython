@@ -43,7 +43,7 @@ window.onkeypress(flyLeft,"Left")
 pipes=[]
 def createPipes():
     # pair
-    pipe_height = random.randint(1,20)
+    pipe_height = random.randint(5,20)
     # upper pipe
     upperPipe = turtle.Turtle()
     upperPipe.shape("square")
@@ -71,8 +71,6 @@ def createPipes():
 
 # gravity factor
 gravity = 0.5
-# pipe generating factor
-pipeGeneratorFactor = 0
 # score 
 score = 0
 #main game loop: to make the bird fall down
@@ -82,20 +80,17 @@ while True:
     # created by the turtle is displayed on the screen
     window.update()
     bird.sety(bird.ycor() -gravity)
-    
-    if pipeGeneratorFactor%200 == 0:
-        createPipes()
+
+    createPipes()
     
     # moving pipes
-    for pipe_top, pipe_bottom in pipes:
-        pipe_top.setx(pipe_top.xcor()-2)
-        pipe_bottom.setx(pipe_bottom.xcor()-2)
+    pipes[0][0].setx(pipes[0][0].xcor()-2)
+    pipes[0][1].setx(pipes[0][0].xcor()-2)
 
-    pipeGeneratorFactor += 1
     score += 1
 
     # game-end logic
-    if bird.ycor() <= -300:
+    if bird.ycor() <= -300 or bird.ycor() >=300:
          print("SCORE: ",score)
          print("Game Over")
          exit()
